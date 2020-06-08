@@ -1,16 +1,15 @@
 import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
 import { persistStore } from "redux-persist";
-import logger from "redux-logger";
+import ReduxLogger from "redux-logger";
+import ReduxThunk from "redux-thunk";
 import rootReducer from "./rootReducer";
 
-const middlewares = [thunk];
+const initialState = {};
+const middlewares = [ReduxThunk];
 if (process.env.NODE_ENV === "development") {
-  middlewares.push(logger);
+  middlewares.push(ReduxLogger);
 }
-const initialState = {
-  user: null,
-};
+
 export const store = createStore(
   rootReducer,
   initialState,

@@ -6,10 +6,9 @@ import user from "./reducers/user";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart"],
+  whitelist: ["user"]
 };
-
 const rootReducer = combineReducers({
-  user,
+  user
 });
 export default persistReducer(persistConfig, rootReducer);
